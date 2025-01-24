@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: bb2032b08f1e99645983e8ce730da60a
+  productGUID: c410c47de7350584592bfb4375188ee5
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -213,7 +213,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.BeardedNinjaGames.VRInteractionFramework
-    Standalone: com.Bearded-Ninja-Games.VR-Interaction-Framework
+    Standalone: com.DefaultCompany.BroCodeXR
   buildNumber:
     Standalone: 0
     VisionOS: 0
