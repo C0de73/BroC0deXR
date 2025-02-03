@@ -3,7 +3,13 @@ guid: 97dc4c75aa9c7ac4496efd08a068c08c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MovementMaterial: {instanceID: 0}
+  - FrictionMaterial: {instanceID: 0}
+  - ForwardDirection: {instanceID: 0}
+  - MoveAction: {instanceID: 0}
+  - SprintAction: {instanceID: 0}
+  - JumpAction: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
