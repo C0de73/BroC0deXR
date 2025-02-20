@@ -91,10 +91,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8784694207428273799}
-    - targetCorrespondingSourceObject: {fileID: 1328778849893280477, guid: 9f87e785e9ac9c14bb8dc5718f4378d0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4475264323164166405}
   m_SourcePrefab: {fileID: 100100000, guid: 9f87e785e9ac9c14bb8dc5718f4378d0, type: 3}
 --- !u!1 &3190855535841079447 stripped
 GameObject:
@@ -198,34 +194,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4475264323164166405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3190855535841079447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca4b66f947a39e4893c1ff725d34ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerFaction:
-    FactionIndex: 0
-    RelationType: 0
-  Radius: 10
-  MinVelocity: 3.5
-  SoundCooldownSeconds: 1
-  ReactionCooldownSeconds: 1
-  TriggerLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  EmeraldAILayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  TriggerType: 10
-  AttractReaction: {fileID: 11400000, guid: b8c674407853d7b419875ba56883be24, type: 2}
-  EnemyRelationsOnly: 1
-  TriggerSounds: []
-  HideSettingsFoldout: 0
-  AttractModifierFoldout: 1
