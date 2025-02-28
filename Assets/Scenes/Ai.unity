@@ -2664,6 +2664,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2116707261}
+    - targetCorrespondingSourceObject: {fileID: 1474931640056506836, guid: 5263dc786610b7240896a4411847b057,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2116707263}
   m_SourcePrefab: {fileID: 100100000, guid: 5263dc786610b7240896a4411847b057, type: 3}
 --- !u!1 &2116707260 stripped
 GameObject:
@@ -2702,6 +2706,21 @@ MonoBehaviour:
   TriggerSounds: []
   HideSettingsFoldout: 0
   AttractModifierFoldout: 1
+--- !u!114 &2116707263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116707260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e984eaf744ac149ba931c82f2a82f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HideSettingsFoldout: 0
+  FactionFoldout: 1
+  CurrentFaction: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
