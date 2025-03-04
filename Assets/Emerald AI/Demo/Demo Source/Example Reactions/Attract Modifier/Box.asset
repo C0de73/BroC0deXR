@@ -24,7 +24,7 @@ MonoBehaviour:
     MovementState: 0
     ElementLineHeight: 1
   - ReactionType: 25
-    IntValue1: 3
+    IntValue1: 1
     IntValue2: 1
     StringValue: New Message
     FloatValue: 1
