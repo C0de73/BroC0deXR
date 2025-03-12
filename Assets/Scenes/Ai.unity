@@ -702,7 +702,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893301941243996485, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
+      propertyPath: MaximumWaitTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893301941243996485, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
+        type: 3}
+      propertyPath: MinimumWaitTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893301941243996485, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
+        type: 3}
       propertyPath: MovementFoldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893301941243996485, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
+        type: 3}
+      propertyPath: AlignmentFoldout
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7245428441284445908, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
@@ -3275,7 +3290,7 @@ MonoBehaviour:
   DefaultMovementPaused: 0
   WanderType: 0
   WaypointType: 1
-  MovementType: 1
+  MovementType: 0
   StartingMovementState: 1
   CurrentMovementState: 1
   UseRandomRotationOnStart: 0
