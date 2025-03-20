@@ -27,7 +27,7 @@ MonoBehaviour:
   NonCombatAnimationsFoldout: 0
   NonCombatIdleFoldout: 1
   NonCombatHitFoldout: 0
-  EmotesFoldout: 1
+  EmotesFoldout: 0
   Type1IdleFoldout: 0
   Type2IdleFoldout: 0
   Type1AttacksFoldout: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   Type1DodgeFoldout: 0
   Type2DodgeFoldout: 0
   AnimationProfileFoldout: 0
-  AnimatorSettingsFoldout: 0
+  AnimatorSettingsFoldout: 1
   Type1HitConditions: -1
   Type2HitConditions: -1
   Type1HitAnimationCooldown: 0.1
