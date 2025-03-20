@@ -24,8 +24,8 @@ MonoBehaviour:
   RunFoldout: 0
   TurnFoldout: 0
   NonCombatDeathFoldout: 0
-  NonCombatAnimationsFoldout: 0
-  NonCombatIdleFoldout: 1
+  NonCombatAnimationsFoldout: 1
+  NonCombatIdleFoldout: 0
   NonCombatHitFoldout: 0
   EmotesFoldout: 0
   Type1IdleFoldout: 0
@@ -78,40 +78,48 @@ MonoBehaviour:
       AnimationClip: {fileID: 0}
       Mirror: 0
     WalkLeft:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     WalkForward:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     WalkRight:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     WalkBack:
       AnimationSpeed: 0
       AnimationClip: {fileID: 0}
       Mirror: 0
     RunLeft:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     RunForward:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     RunRight:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     TurnLeft:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     TurnRight:
-      AnimationSpeed: 0
-      AnimationClip: {fileID: 0}
+      AnimationSpeed: 1
+      AnimationClip: {fileID: -1402846037389043907, guid: aac1c7beec5511b4fb274dfe384e4bed,
+        type: 3}
       Mirror: 0
     HitList: []
     DeathList: []
