@@ -1013,8 +1013,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2107363020560585680, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
+      propertyPath: m_AnimationProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 870a1aac793b986458e86d25c8c32642,
+        type: 2}
+    - target: {fileID: 2107363020560585680, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
+        type: 3}
       propertyPath: AnimationProfileFoldout
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107363020560585680, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
+        type: 3}
+      propertyPath: Type1AttackEnumAnimations.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2241493379827298267, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
@@ -1024,12 +1035,12 @@ PrefabInstance:
     - target: {fileID: 2241493379827298267, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
       propertyPath: WeaponType1SettingsFoldout
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241493379827298267, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
       propertyPath: CombatActionSettingsFoldout
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241493379827298267, guid: ddf849e2f9cdb0743a818a5bbe2c91f6,
         type: 3}
