@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CloneSpawner : MonoBehaviour
 {
-    public GameObject objectToClone;
-    public Transform spawnPosition;
+    public static GameObject objectToClone;
+    public static Transform spawnPosition;
    
 
     void Update()
@@ -16,7 +16,7 @@ public class CloneSpawner : MonoBehaviour
         }
     }
 
-    public void CreateClone()
+    public static void CreateClone()
     {
         Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation);
     }
