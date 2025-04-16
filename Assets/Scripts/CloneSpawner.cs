@@ -6,6 +6,7 @@ public class CloneSpawner : MonoBehaviour
 {
     public static GameObject objectToClone;
     public static Transform spawnPosition;
+    private static float secondsCount;
    
 
     void Update()
@@ -18,6 +19,14 @@ public class CloneSpawner : MonoBehaviour
 
     public static void CreateClone()
     {
-        Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation);
+        Debug.Log(secondsCount);
+        secondsCount += Time.deltaTime;
+
+        if ((secondsCount%2) == 0)
+        {
+           Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation); 
+
+        }
+        
     }
 }
