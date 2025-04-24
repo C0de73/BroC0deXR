@@ -14,6 +14,7 @@ public class CloneSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) // Or any other key/input
         {
             CreateClone();
+            Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation); 
         }
     }
 
@@ -24,7 +25,7 @@ public class CloneSpawner : MonoBehaviour
 
         if ((secondsCount%2) == 0)
         {
-           Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation); 
+           
 
         }
         
