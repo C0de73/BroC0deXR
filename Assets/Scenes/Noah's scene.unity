@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -719,37 +719,6 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -80.28976, y: 6.776102, z: -93.31312}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1947448129}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &104375344
-GameObject:
-  m_ObjectHideFlags: 8
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 104375345}
-  m_Layer: 0
-  m_Name: 'SM_Env_Rubble_Pebbles_01 (Missing Prefab with guid: e30845de42f85204da45b4a479bf42df)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &104375345
-Transform:
-  m_ObjectHideFlags: 8
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104375344}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.482243, y: 7.0223465, z: -14.554116}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1947448129}
@@ -2897,6 +2866,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614731049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8969380467045853598, guid: c4585401312d48c4ab286f434cde4126,
+    type: 3}
+  m_PrefabInstance: {fileID: 1204355844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &614731050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614731049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661a981e21f8554aaee22f5b6384b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToClone: {fileID: 614731049}
+  spawnPosition: {fileID: 642224360}
+--- !u!114 &614731051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614731049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a33a04e19e3ac4790d52a2324589e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &614731052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614731049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2fc7a0a4301c041b1a1a84a8aeb723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: {fileID: 963656975}
+  wherespawn: {fileID: 614731069}
+--- !u!4 &614731069 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2131177826098799187, guid: c4585401312d48c4ab286f434cde4126,
+    type: 3}
+  m_PrefabInstance: {fileID: 1204355844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &616882893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4375917383470778, guid: 0cee5f343e1618e4d9b4cdf0cea994c9,
@@ -4561,6 +4582,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1500377860}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &963656975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1218906023877779703, guid: 4e6aafd59b2f2b741ad13ebf1fb6383b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1683382053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &982133386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5718,7 +5745,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8969380467045853598, guid: c4585401312d48c4ab286f434cde4126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614731052}
+    - targetCorrespondingSourceObject: {fileID: 8969380467045853598, guid: c4585401312d48c4ab286f434cde4126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614731051}
+    - targetCorrespondingSourceObject: {fileID: 8969380467045853598, guid: c4585401312d48c4ab286f434cde4126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614731050}
   m_SourcePrefab: {fileID: 100100000, guid: c4585401312d48c4ab286f434cde4126, type: 3}
 --- !u!1001 &1218179809
 PrefabInstance:
@@ -6136,11 +6175,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1947448129}
     m_Modifications:
-    - target: {fileID: 23909568977039812, guid: 47943db42d2ef3a4894c863802dc72fc,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a79739788d185004ab545ddf24becc47, type: 2}
     - target: {fileID: 113888, guid: 6b8ef567fab8aae4fb47c66e41111903, type: 3}
       propertyPath: m_Name
       value: SM_Env_Rubble_Pebbles_02 (1)
@@ -6197,6 +6231,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23909568977039812, guid: 47943db42d2ef3a4894c863802dc72fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a79739788d185004ab545ddf24becc47, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8296,7 +8335,6 @@ Transform:
   - {fileID: 1198178747}
   - {fileID: 1137745061}
   - {fileID: 1837369085}
-  - {fileID: 104375345}
   - {fileID: 295871373}
   - {fileID: 1577656457}
   - {fileID: 1268537522}

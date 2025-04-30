@@ -10,14 +10,12 @@ public class AmmoDrop : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+  
+
+    public void DropAmmo()
     {
         Instantiate(ammo, wherespawn.position, wherespawn.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
