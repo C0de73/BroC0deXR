@@ -1,32 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CloneSpawner : MonoBehaviour
 {
-    public static GameObject objectToClone;
-    public static Transform spawnPosition;
-    private static float secondsCount;
-   
+    public GameObject objectToClone;
+    public Transform spawnPosition;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Or any other key/input
-        {
-            CreateClone();
-        }
+        StartCoroutine(SpawnAfterDelay());
     }
 
-    public static void CreateClone()
+    IEnumerator SpawnAfterDelay()
     {
-        Debug.Log(secondsCount);
-        secondsCount += Time.deltaTime;
-
-        if ((secondsCount%2) == 0)
-        {
-           Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation); 
-
-        }
-        
+        yield return new WaitForSeconds(2f); // wait 2 seconds
+        Instantiate(objectToClone, spawnPosition.position, spawnPosition.rotation);
     }
 }

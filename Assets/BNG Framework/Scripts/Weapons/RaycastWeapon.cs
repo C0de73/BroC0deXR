@@ -495,6 +495,11 @@ namespace BNG {
                 RaycastHit hit;
                 if (Physics.Raycast(muzzleTransform.position, muzzleTransform.forward, out hit, MaxRange, ValidLayers, QueryTriggerInteraction.Ignore)) {
                     OnRaycastHit(hit);
+                    if (hit.collider.GetComponent<AmmoDrop>() != null)
+                    {
+                        AmmoDrop a = hit.collider.GetComponent<AmmoDrop>();
+                        a.DropAmmo();
+                    }
                 }
             }
 
