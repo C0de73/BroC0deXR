@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using EmeraldAI;
 
 namespace BNG {
 
@@ -499,6 +500,15 @@ namespace BNG {
                     {
                         AmmoDrop a = hit.collider.GetComponent<AmmoDrop>();
                         a.DropAmmo();
+                       
+                        
+
+                        EmeraldSystem ai = hit.transform.GetComponent<EmeraldSystem>();
+                        if (ai != null)
+                        {
+                            ai.HealthComponent.Damage(25f,null,20,false); // 25 is the damage amount; change if needed
+                        }
+
                     }
                 }
             }
