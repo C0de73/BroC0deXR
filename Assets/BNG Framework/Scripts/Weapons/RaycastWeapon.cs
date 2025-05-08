@@ -506,7 +506,7 @@ namespace BNG {
                         EmeraldSystem ai = hit.transform.GetComponent<EmeraldSystem>();
                         if (ai != null)
                         {
-                            ai.HealthComponent.Damage(25f,null,20,false); // 25 is the damage amount; change if needed
+                            ai.HealthComponent.Damage(25,null,20,false); // 25 is the damage amount; change if needed
                         }
 
                     }
