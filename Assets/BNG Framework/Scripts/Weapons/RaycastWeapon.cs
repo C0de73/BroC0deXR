@@ -500,13 +500,15 @@ namespace BNG {
                     {
                         AmmoDrop a = hit.collider.GetComponent<AmmoDrop>();
                         a.DropAmmo();
-                       
                         
-
                         EmeraldSystem ai = hit.transform.GetComponent<EmeraldSystem>();
-                        if (ai != null)
-                        {
-                            ai.HealthComponent.Damage(25,null,20,false); // 25 is the damage amount; change if needed
+                        if (ai != null) {
+                            Debug.Log("Emerald AI found! Applying damage.");
+                            ai.HealthComponent.Damage(25, null, 20, false);
+                            ai.HealthComponent.KillAI();
+                            
+                        } else {
+                            Debug.Log("Emerald AI NOT found on hit object.");
                         }
 
                     }
