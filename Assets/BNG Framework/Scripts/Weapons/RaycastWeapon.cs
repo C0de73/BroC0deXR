@@ -410,56 +410,68 @@ namespace BNG {
         }
 
         protected bool playedEmptySound = false;
-        
-        public virtual void Shoot() {
 
-            if (SafetyOn) {
+        public virtual void Shoot()
+        {
+
+            if (SafetyOn)
+            {
                 return;
             }
-            
+
             // Has enough time passed between shots
             float shotInterval = Time.timeScale < 1 ? SlowMoRateOfFire : FiringRate;
-            if (Time.time - lastShotTime < shotInterval) {
+            if (Time.time - lastShotTime < shotInterval)
+            {
                 return;
             }
 
             // Need to Chamber round into weapon
-            if(!BulletInChamber && MustChamberRounds) {
+            if (!BulletInChamber && MustChamberRounds)
+            {
                 // Only play empty sound once per trigger down
-                if(!playedEmptySound) {
+                if (!playedEmptySound)
+                {
                     PlayEmptyShotSound();
                     playedEmptySound = true;
                 }
-                
+
                 return;
             }
             // Weapon doesn't require chamber, but has no bullets
-            else if(!MustChamberRounds && GetBulletCount() == 0 && ReloadMethod != ReloadType.InfiniteAmmo) {
+            else if (!MustChamberRounds && GetBulletCount() == 0 && ReloadMethod != ReloadType.InfiniteAmmo)
+            {
 
-                if (!playedEmptySound) {
+                if (!playedEmptySound)
+                {
                     PlayEmptyShotSound();
                     playedEmptySound = true;
                 }
+
                 return;
             }
 
             // Need to release slide
-            if(ws != null && ws.LockedBack) {
+            if (ws != null && ws.LockedBack)
+            {
                 VRUtils.Instance.PlaySpatialClipAt(EmptySound, transform.position, EmptySoundVolume, 0.5f);
                 return;
             }
 
             // Create our own spatial clip
             // Silenced vs. Unsilenced clip
-            if(IsSilenced && GunShotSilencedSound) {
+            if (IsSilenced && GunShotSilencedSound)
+            {
                 VRUtils.Instance.PlaySpatialClipAt(GunShotSilencedSound, transform.position, GunShotSilencedVolume);
             }
-            else {
+            else
+            {
                 VRUtils.Instance.PlaySpatialClipAt(GunShotSound, transform.position, GunShotVolume);
             }
 
             // Haptics
-            if (thisGrabber != null) {
+            if (thisGrabber != null)
+            {
                 input.VibrateController(0.1f, 0.2f, 0.1f, thisGrabber.HandSide);
             }
 
@@ -467,21 +479,26 @@ namespace BNG {
 
             // Use projectile if Time has been slowed
             bool useProjectile = AlwaysFireProjectile || (FireProjectileInSlowMo && Time.timeScale < 1);
-            if (useProjectile) {
-                
+            if (useProjectile)
+            {
 
-                GameObject projectile = Instantiate(ProjectilePrefab, muzzleTransform.position, muzzleTransform.rotation) as GameObject;
+
+                GameObject projectile =
+                    Instantiate(ProjectilePrefab, muzzleTransform.position, muzzleTransform.rotation) as GameObject;
                 Rigidbody projectileRigid = projectile.GetComponentInChildren<Rigidbody>();
                 projectileRigid.AddForce(muzzleTransform.forward * ShotForce, ForceMode.VelocityChange);
-                
+
                 Projectile proj = projectile.GetComponent<Projectile>();
                 // Convert back to raycast if Time reverts
-                if (proj && !AlwaysFireProjectile) {
+                if (proj && !AlwaysFireProjectile)
+                {
                     proj.MarkAsRaycastBullet();
                 }
 
-                if(proj && LaserGuided) {
-                    if(LaserPoint == null) {
+                if (proj && LaserGuided)
+                {
+                    if (LaserPoint == null)
+                    {
                         LaserPoint = muzzleTransform;
                     }
 
@@ -491,72 +508,89 @@ namespace BNG {
                 // Make sure we clean up this projectile
                 Destroy(projectile, 20);
             }
-            else {
+            else
+            {
                 // Raycast to hit
                 RaycastHit hit;
-                if (Physics.Raycast(muzzleTransform.position, muzzleTransform.forward, out hit, MaxRange, ValidLayers, QueryTriggerInteraction.Ignore)) {
+                if (Physics.Raycast(muzzleTransform.position, muzzleTransform.forward, out hit, MaxRange, ValidLayers,
+                        QueryTriggerInteraction.Ignore))
+                {
                     OnRaycastHit(hit);
-                    if (hit.collider.GetComponent<AmmoDrop>() != null)
-                    {
-                        AmmoDrop a = hit.collider.GetComponent<AmmoDrop>();
-                        a.DropAmmo();
-                        
-                        EmeraldSystem ai = hit.transform.GetComponent<EmeraldSystem>();
-                        if (ai != null) {
-                            Debug.Log("Emerald AI found! Applying damage.");
-                            ai.HealthComponent.Damage(25, null, 20, false);
-                            ai.HealthComponent.KillAI();
-                            
-                        } else {
-                            Debug.Log("Emerald AI NOT found on hit object.");
-                        }
 
+                    // Damage Emerald AI if hit
+                    EmeraldSystem ai = hit.transform.GetComponentInParent<EmeraldSystem>();
+                    if (ai != null)
+                    {
+                        Debug.Log("Emerald AI found! Applying damage.");
+                        ai.HealthComponent.Damage(25, null, 20, false);
+
+                        // Optional: Kill instantly (for testing)
+                        // ai.HealthComponent.KillAI();
+                    }
+                    else
+                    {
+                        Debug.Log("Emerald AI NOT found on hit object.");
+                    }
+
+                    // Check for AmmoDrop separately
+                    AmmoDrop a = hit.collider.GetComponent<AmmoDrop>();
+                    if (a != null)
+                    {
+                        a.DropAmmo();
                     }
                 }
-            }
 
-            // Apply recoil
-            ApplyRecoil();
 
-            // We just fired this bullet
-            BulletInChamber = false;
+                // Apply recoil
+                ApplyRecoil();
 
-            // Try to load a new bullet into chamber         
-            if (AutoChamberRounds) {
-                chamberRound();
-            }
-            else {
-                EmptyBulletInChamber = true;
-            }
+                // We just fired this bullet
+                BulletInChamber = false;
 
-            // Unable to chamber bullet, force slide back
-            if(!BulletInChamber) {
-                // Do we need to force back the receiver?
-                slideForcedBack = ForceSlideBackOnLastShot;
-
-                if (slideForcedBack && ws != null) {
-                    ws.LockBack();
+                // Try to load a new bullet into chamber         
+                if (AutoChamberRounds)
+                {
+                    chamberRound();
                 }
-            }
-
-            // Call Shoot Event
-            if(onShootEvent != null) {
-                onShootEvent.Invoke();
-            }
-
-            // Store our last shot time to be used for rate of fire
-            lastShotTime = Time.time;
-
-            DoMuzzleFlash();
-
-            if (AutoChamberRounds) {
-                // Animate Slide, Eject Shell, Muzzle Flash
-                if (ws) {
-                    ws.BlowbackSlide(0.1f);
+                else
+                {
+                    EmptyBulletInChamber = true;
                 }
 
-                // Eject Shell Slightly after slide is back
-                Invoke("EjectShell", 0.05f);
+                // Unable to chamber bullet, force slide back
+                if (!BulletInChamber)
+                {
+                    // Do we need to force back the receiver?
+                    slideForcedBack = ForceSlideBackOnLastShot;
+
+                    if (slideForcedBack && ws != null)
+                    {
+                        ws.LockBack();
+                    }
+                }
+
+                // Call Shoot Event
+                if (onShootEvent != null)
+                {
+                    onShootEvent.Invoke();
+                }
+
+                // Store our last shot time to be used for rate of fire
+                lastShotTime = Time.time;
+
+                DoMuzzleFlash();
+
+                if (AutoChamberRounds)
+                {
+                    // Animate Slide, Eject Shell, Muzzle Flash
+                    if (ws)
+                    {
+                        ws.BlowbackSlide(0.1f);
+                    }
+
+                    // Eject Shell Slightly after slide is back
+                    Invoke("EjectShell", 0.05f);
+                }
             }
         }
 
