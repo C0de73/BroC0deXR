@@ -519,10 +519,11 @@ namespace BNG {
 
                     // Damage Emerald AI if hit
                     EmeraldSystem ai = hit.transform.GetComponentInParent<EmeraldSystem>();
+                    Debug.DrawRay(muzzleTransform.position, muzzleTransform.forward * MaxRange, Color.red, 2f);
                     if (ai != null)
                     {
                         Debug.Log("Emerald AI found! Applying damage.");
-                        ai.HealthComponent.Damage(25, null, 20, false);
+                        ai.HealthComponent.Damage(25, null, 10, true);
 
                         // Optional: Kill instantly (for testing)
                         // ai.HealthComponent.KillAI();

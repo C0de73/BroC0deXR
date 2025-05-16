@@ -390,9 +390,9 @@ InputManager:
     axis: 5
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Oculus_GearVR_LIndexTrigger
-    descriptiveName: 
-    descriptiveNegativeName: 
+    m_Name: 21
+    descriptiveName: 21
+    descriptiveNegativeName: 21
     negativeButton: 
     positiveButton: 
     altNegativeButton: 
@@ -406,9 +406,9 @@ InputManager:
     axis: 12
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Oculus_GearVR_RIndexTrigger
-    descriptiveName: 
-    descriptiveNegativeName: 
+    m_Name: 20
+    descriptiveName: 20
+    descriptiveNegativeName: 20
     negativeButton: 
     positiveButton: 
     altNegativeButton: 

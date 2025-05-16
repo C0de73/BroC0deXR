@@ -164,6 +164,8 @@ namespace EmeraldAI
         /// </summary>
         void Death()
         {
+            EnemyKillTracker.RegisterKill();
+
             OnDeath?.Invoke(); //Invoke the AI death event.
             EmeraldComponent.AnimationComponent.IsDead = true;
             EmeraldCombatManager.DisableComponents(EmeraldComponent);
