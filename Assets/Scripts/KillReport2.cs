@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class KillReport2 : MonoBehaviour
 {
-    public float destroyDelay = 3f;
-
-    public void ReportKillAndDestroy()
+    public void ReportKillAndDisable()
     {
         EnemyKillTracker.RegisterKill();
-        Destroy(gameObject, destroyDelay);
+        gameObject.SetActive(false); // "Revive" later instead of destroy
     }
 }
+
 

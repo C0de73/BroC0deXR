@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using EmeraldAI;
@@ -10,17 +11,14 @@ public class WaveSpawner : MonoBehaviour
 
     public int initialEnemyCount = 3;
     public int incrementPerWave = 2;
-    public float spawnDelay = 2f;
-    public float waveDelay = 5f;
+    public float spawnDelay = 0.5f;
+    public float waveDelay = 3f;
 
     public TMP_Text waveText;
 
     private int currentWave = 0;
-    private int enemiesToSpawn = 0;
-    private int enemiesSpawnedThisWave = 0;
     private int killsAtWaveStart = 0;
-
-    private bool isSpawning = false;
+    private List<GameObject> enemyPool = new List<GameObject>();
 
     private void Start()
     {
@@ -30,58 +28,73 @@ public class WaveSpawner : MonoBehaviour
     void StartNextWave()
     {
         currentWave++;
-        enemiesToSpawn = initialEnemyCount + ((currentWave - 1) * incrementPerWave);
-        enemiesSpawnedThisWave = 0;
+        int enemiesThisWave = initialEnemyCount + ((currentWave - 1) * incrementPerWave);
         killsAtWaveStart = EnemyKillTracker.instance != null ? EnemyKillTracker.instance.killCount : 0;
 
         if (waveText != null)
             waveText.text = "Wave: " + currentWave;
 
-        StartCoroutine(SpawnWave());
+        StartCoroutine(SpawnWave(enemiesThisWave));
     }
 
-    IEnumerator SpawnWave()
+    IEnumerator SpawnWave(int enemyCount)
     {
-        isSpawning = true;
+        int spawned = 0;
 
-        while (enemiesSpawnedThisWave < enemiesToSpawn)
+        for (int i = 0; i < enemyCount; i++)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            GameObject clone = Instantiate(objectToClone, spawnPoint.position, spawnPoint.rotation);
+            GameObject enemy = GetPooledEnemy();
 
-            clone.layer = LayerMask.NameToLayer("Enemy");
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
+            enemy.SetActive(true);
 
-            // Emerald AI setup
-            EmeraldSystem ai = clone.GetComponent<EmeraldSystem>();
-            EmeraldHealth health = clone.GetComponent<EmeraldHealth>();
-
+            // Reset health and AI
+            EmeraldSystem ai = enemy.GetComponent<EmeraldSystem>();
+            EmeraldHealth health = enemy.GetComponent<EmeraldHealth>();
             if (ai != null)
             {
                 ai.enabled = false;
                 ai.enabled = true;
-
                 if (ai.HealthComponent == null && health != null)
                     ai.HealthComponent = health;
+                if (health != null)
+                {
+                    health.CurrentHealth = health.StartingHealth;
+                }
             }
 
-            enemiesSpawnedThisWave++;
+            spawned++;
             yield return new WaitForSeconds(spawnDelay);
         }
 
-        isSpawning = false;
-
-        // Wait for all enemies to be killed before starting next wave
-        StartCoroutine(CheckForWaveCompletion());
+        // Wait for kills before next wave
+        StartCoroutine(CheckForWaveCompletion(enemyCount));
     }
 
-    IEnumerator CheckForWaveCompletion()
+    IEnumerator CheckForWaveCompletion(int waveSize)
     {
-        while ((EnemyKillTracker.instance != null ? EnemyKillTracker.instance.killCount : 0) < killsAtWaveStart + enemiesToSpawn)
+        while ((EnemyKillTracker.instance != null ? EnemyKillTracker.instance.killCount : 0) < killsAtWaveStart + waveSize)
         {
             yield return new WaitForSeconds(1f);
         }
 
         yield return new WaitForSeconds(waveDelay);
         StartNextWave();
+    }
+
+    GameObject GetPooledEnemy()
+    {
+        foreach (GameObject e in enemyPool)
+        {
+            if (!e.activeInHierarchy)
+                return e;
+        }
+
+        // None available — create a new one
+        GameObject newEnemy = Instantiate(objectToClone);
+        enemyPool.Add(newEnemy);
+        return newEnemy;
     }
 }

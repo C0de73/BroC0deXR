@@ -1,11 +1,10 @@
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using TMPro;
 
 public class EnemyKillTracker : MonoBehaviour
 {
     public int killCount = 0;
-    public TMP_Text killCounterText;  // << Use TMP_Text for TextMeshPro
+    public TMP_Text killCounterText;
 
     public static EnemyKillTracker instance;
 
@@ -19,7 +18,6 @@ public class EnemyKillTracker : MonoBehaviour
     {
         if (instance != null)
         {
-            
             instance.killCount++;
             Debug.Log("Enemy killed. Total: " + instance.killCount);
             instance.UpdateKillCounterUI();
