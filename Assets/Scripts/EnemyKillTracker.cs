@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using TMPro;
 
@@ -6,7 +7,7 @@ public class EnemyKillTracker : MonoBehaviour
     public int killCount = 0;
     public TMP_Text killCounterText;  // << Use TMP_Text for TextMeshPro
 
-    private static EnemyKillTracker instance;
+    public static EnemyKillTracker instance;
 
     void Awake()
     {
