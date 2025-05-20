@@ -20612,6 +20612,7 @@ GameObject:
   - component: {fileID: 1002409335}
   - component: {fileID: 1002409334}
   - component: {fileID: 1002409337}
+  - component: {fileID: 1002409338}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -20685,6 +20686,19 @@ MonoBehaviour:
   spawnDelay: 2
   waveDelay: 10
   waveText: {fileID: 0}
+--- !u!114 &1002409338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002409333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7b884f69dd6fe4b84c21891ad3b52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 3
 --- !u!4 &1003019437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4440414917697130, guid: b5ffd0ec75844184490ba4618cc6361c,
@@ -41947,6 +41961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: HideSettingsFoldout
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071317680090254761, guid: 740a25beb0c2d3b49a5c325fa8c75bea,
+        type: 3}
+      propertyPath: BehaviorSettingsFoldout
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6414818554711540597, guid: 740a25beb0c2d3b49a5c325fa8c75bea, type: 3}

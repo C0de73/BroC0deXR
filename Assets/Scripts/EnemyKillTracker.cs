@@ -19,6 +19,7 @@ public class EnemyKillTracker : MonoBehaviour
     {
         if (instance != null)
         {
+            
             instance.killCount++;
             Debug.Log("Enemy killed. Total: " + instance.killCount);
             instance.UpdateKillCounterUI();
